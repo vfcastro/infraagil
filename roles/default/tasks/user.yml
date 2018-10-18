@@ -1,0 +1,10 @@
+
+- name: cria usuarios padrao
+  user:
+    name: "{{item.nome}}"
+    password: "{{item.password}}"
+    shell: "{{item.shell}}"
+  with_items:
+    - { nome: vinicius_decastro, password: 'gVLYAaxM8OYSs', shell: /bin/bash }
+    - { nome: developer, password: 'gVLYAaxM8OYSs', shell: /bin/bash }
+    - { nome: devops, password: 'gVLYAaxM8OYSs', shell: /bin/bash }

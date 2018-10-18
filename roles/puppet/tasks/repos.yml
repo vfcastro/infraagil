@@ -1,0 +1,15 @@
+
+- name: add puppet repo for Centos
+  yum:
+    name: https://yum.puppet.com/puppet6/puppet6-release-el-7.noarch.rpm
+  when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "7"
+
+- name: add puppet repo for Ubunto bionic
+  apt:
+    deb: https://apt.puppetlabs.com/puppet6-release-bionic.deb
+  when: ansible_os_family == "Debian" and ansible_distribution_release == "bionic"
+
+- name: add puppet repo for Debian xenial
+  apt:
+    deb: https://apt.puppetlabs.com/puppet6-release-xenial.deb
+  when: ansible_os_family == "Debian" and ansible_distribution_release == "xenial"

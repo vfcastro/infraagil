@@ -1,0 +1,12 @@
+
+- name: pacotes padroes centos/redhat
+  package:
+    name:
+      - epel-release
+      - figlet
+      - htop
+      - cowsay
+      - sysstat
+    state: present
+  when: ansible_os_family == "RedHat"
+

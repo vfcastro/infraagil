@@ -1,0 +1,13 @@
+
+- name: pacote apache debian
+  package:
+    name:
+      - apache2
+    update_cache: yes
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: inicia servico
+  service:
+    name: apache2
+    state: restarted  

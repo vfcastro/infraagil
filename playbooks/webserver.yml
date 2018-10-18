@@ -1,0 +1,26 @@
+---
+
+- name: cria servidor web
+  hosts: all
+  tasks:
+    - name: add usuarios comunus
+      user:
+        name: "{{item}}"
+        password: '3Yx5l9BmWQaCU'
+        shell: /bin/bash
+      with_items:
+        - devops
+        - developer
+        - vinicius_decastro
+
+    - name: instala apache2
+      package:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: instala httpd
+      package:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"

@@ -1,0 +1,5 @@
+
+- name: invoca role webserver
+  hosts: all
+  roles:
+    - webserver

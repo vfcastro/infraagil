@@ -1,0 +1,8 @@
+<marquee>
+<h1>BALABALBALBPALBPA
+<br>
+host: {{ansible_hostname}}
+<br>
+distro: {{ansible_os_family}}
+</h1>
+</marquee>

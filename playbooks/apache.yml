@@ -1,0 +1,21 @@
+---
+
+- name: config webserver
+  hosts: "{{maquina}}"
+  vars:
+    maquina: default
+  tasks:
+    - name: ensure apache running on Debian
+      package:
+        name: apache2
+      when: ansible_os_family == "Debian"
+
+    - name: ensure apache running on RedHat
+      package:
+        name: httpd
+      when: ansible_os_family == "RedHat"
+
+    - name: create webpage
+      template:
+        src: index
+        dest: /var/www/html/index.html

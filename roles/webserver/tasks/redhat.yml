@@ -1,0 +1,12 @@
+
+- name: pacote apache centos/redhat
+  package:
+    name:
+      - httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: inicia servico
+  service:
+    name: httpd
+    state: restarted

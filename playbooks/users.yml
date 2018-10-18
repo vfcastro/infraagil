@@ -1,0 +1,24 @@
+---
+
+- name: primeiro playbook
+  hosts: all
+  tasks: 
+ 
+  - name: cria user devops
+    user:
+      name: devops
+      password: '/V2Ft5gBmWAXs'
+      shell: /bin/bash
+      
+  - name: cria user developer
+    user:
+      name: developer
+      password: '/V2Ft5gBmWAXs'
+      shell: /bin/bash
+
+  - name: cria user vinicius_decastro
+    user:
+      name: vinicius_decastro
+      password: '/V2Ft5gBmWAXs'
+      shell: /bin/bash
+ 

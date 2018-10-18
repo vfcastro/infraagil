@@ -1,0 +1,5 @@
+
+- name: invoca roles
+  hosts: all
+  roles:
+    - default

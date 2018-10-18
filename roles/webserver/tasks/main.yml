@@ -1,0 +1,15 @@
+---
+# tasks file for webserver
+
+- name: instala pacote apache Debian
+  include: debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: instala pacote apache Centos
+  include: redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- name: configura index.html Apache
+  template:
+    src: index
+    dest: /var/www/html/index.html

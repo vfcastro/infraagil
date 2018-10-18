@@ -1,0 +1,26 @@
+---
+
+- name: utiliza variavel no playbook
+  hosts: "{{maquina}}"
+  vars:
+    maquina: 
+    pacotes_debian:
+    pacotes_redhat:
+
+  tasks:
+
+    - name: instala pacotes Debian
+      package:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - "{{pacotes_debian}}"
+      when: ansible_os_family == "Debian"
+
+    - name: instala pacotes Redhat
+      package:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - "{{pacotes_redhat}}"
+      when: ansible_os_family == "RedHat"

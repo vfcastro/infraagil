@@ -1,0 +1,27 @@
+
+- name: install puppetserver
+  package:
+    name: puppetserver
+    update_cache: yes
+
+- name: memory config on RedHat
+  lineinfile:
+    path: /etc/sysconfig/puppetserver
+    line: 'JAVA_ARGS="-Xms512m -Xmx512m"'
+    state: present
+    create: yes
+  when: ansible_os_family == "RedHat"
+
+- name: memory config on Debian
+  lineinfile:
+    path: /etc/default/puppetserver
+    line: 'JAVA_ARGS="-Xms512m -Xmx512m"'
+    state: present
+    create: yes
+  when: ansible_os_family == "Debian"
+
+
+- name: start puppetserver
+  service:
+    name: puppetserver
+    state: restarted

@@ -1,0 +1,23 @@
+---
+
+- name: add pacotes e copia arquivos
+  hosts: all
+  tasks:
+
+  - name: instala vim
+    package:
+      name: vim
+      state: present
+
+  - name: copia /etc/hosts
+    copy:
+      src: /etc/hosts
+      dest: /etc/hosts
+
+  - name: add linha em /etc/hosts
+    lineinfile:
+      path: /etc/hosts
+      line: '192.168.200.1 desktop' 
+
+
+ 
