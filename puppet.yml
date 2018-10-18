@@ -1,0 +1,5 @@
+
+- name: install puppet
+  hosts: all
+  roles:
+    - puppet
